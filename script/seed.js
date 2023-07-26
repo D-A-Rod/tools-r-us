@@ -17,13 +17,47 @@ async function seed() {
   ])
 
   const products = await Promise.all([
-    Products.create({ name: "MiterSaw", 
+    Products.create(
+    { name: "MiterSaw", 
     description: "Making agnle/miter cuts",
     price: "1000",
-    //available: true,
+    available: true,
     imageUrl: 'https://www.toolmarts.com/pub/media/catalog/product/cache/7ef6b049ff4d7103e1a7cf103c80b437/d/w/dws780-hpt-lg.jpg',
-    productType: 'construction'
+    productType: 'Construction'
+  },
+  Products.create({
+    name: "Drills",
+    description: "Ditch the screw driver rent the drill",
+    price: "50",
+    available: true,
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnINEMmuf0UyKpwMO1j-vI6mW6GnwmieyneA&usqp=CAU',
+    productType: 'Construction'
   }),
+  Products.create({
+    name: "Ladder",
+    description: "Too high to reach? Here is a helping hand to give you a boost",
+    price: "1000",
+    available: true,
+    imageUrl: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSgS2zSBKpKHiFh6rg4liP0YzkHUYpPv4TAeObL09-2NfRmE-5__fdvKwFuNSP--zGBurlsOfsQHIVcrs1oi7grF0OnvxyXjwv9Rs04yfLp1yJt8km8IGpR&usqp=CAc',
+    productType: 'Misc'
+  }),
+  Products.create({
+    name: "WireCutter",
+    description: "Cut through any wire with these bad boys",
+    price: "10",
+    available: true,
+    imageUrl: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRHn7xS3sgjFgIIiBGzaimqHqm7AEbyWbrOtjophQcsk1DsO2FwgzfC0xN-_oMEbdpXXAaukwBb9RgG_DLViMZ7V0z-xhtn-yNqN4yrTmTDnvwzdd2G77KL1Q&usqp=CAc',
+    productType: 'Electrical'
+  }),
+  Products.create({
+    name: "PVCpipe",
+    description: "Got a leak? Maybe a new pipe will get it fixed",
+    price: "1000",
+    available: true,
+    imageUrl: 'https://m.media-amazon.com/images/I/518j5POdTdL._AC_SX679_.jpg',
+    productType: 'plumbing'
+  }),
+  ),
   ])
 
   console.log(`seeded ${users.length} users`)
@@ -36,6 +70,12 @@ async function seed() {
     },
     products: {
       MiterSaw: products[0],
+      Drills: products[1],
+      Lddder: products[2],
+      WireCutters: products[3],
+      PVCpipe: products[4],
+
+
     }
   }
 }

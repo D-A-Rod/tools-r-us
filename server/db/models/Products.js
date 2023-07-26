@@ -14,7 +14,7 @@ const Products = db.define('products', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  availible: {
+  available: {
     type: Sequelize.BOOLEAN,
     //allowNull: false
     
