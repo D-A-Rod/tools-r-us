@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Products} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -16,12 +16,26 @@ async function seed() {
     User.create({ username: 'murphy', password: '123' }),
   ])
 
+  const products = await Promise.all([
+    Products.create({ name: "MiterSaw", 
+    description: "Making agnle/miter cuts",
+    price: "1000",
+    //available: true,
+    imageUrl: 'https://www.toolmarts.com/pub/media/catalog/product/cache/7ef6b049ff4d7103e1a7cf103c80b437/d/w/dws780-hpt-lg.jpg',
+    productType: 'construction'
+  }),
+  ])
+
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${products.length} products`)
   console.log(`seeded successfully`)
   return {
     users: {
       cody: users[0],
       murphy: users[1]
+    },
+    products: {
+      MiterSaw: products[0],
     }
   }
 }
