@@ -39,7 +39,9 @@ const AllProducts = () => {
             {product.available ? <p>Available</p> : <p>Not Available</p>}
             <p>{product.productType}</p>
             {/* <p>Price: ${product.price}</p> */}
-            <button>Go to item</button>
+            <Link to={`/singleProduct/${product.id}`}>
+              <button>Go to item</button>
+            </Link>
           </div>
         );
       })}

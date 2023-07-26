@@ -2,7 +2,6 @@ body {
   font-family: sans-serif;
   background-color: black;
   color: goldenrod;
-
 }
 
 a {
@@ -104,7 +103,7 @@ img {
 }
 
 .product-card p.availability {
-  color: #4CAF50;
+  color: #4caf50;
   font-weight: bold;
 }
 
@@ -113,3 +112,61 @@ img {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* CSS for the Single Product component */
+.single-product-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.single-view-name-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.single-view-name-header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.single-view-name-header h2 {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.single-view-name-header p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.single-product-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.single-product-wrapper button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.single-product-wrapper button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for "Not Available" product */
+.single-view-name-header p:not(.available) {
+  color: #ff0000;
+}
