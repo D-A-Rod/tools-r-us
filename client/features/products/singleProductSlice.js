@@ -21,15 +21,12 @@ const singleProductSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchSingleProductAsync.fulfilled, (state, action) => {
-      console.log("Action payload:", action.payload);
-      console.log("Updated singleProduct state:", state);
       return action.payload;
     });
   },
 });
 
 export const selectSingleProduct = (state) => {
-  console.log("this is SelectSingleProduct", state);
   return state.singleProduct;
 };
 

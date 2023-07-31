@@ -1,16 +1,14 @@
-import React from 'react';
+
+
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { authenticate } from '../../app/store';
-
-/**
-  The AuthForm component can be used for Login or Sign Up.
-  Props for Login: name="login", displayName="Login"
-  Props for Sign up: name="signup", displayName="Sign Up"
-**/
 
 const AuthForm = ({ name, displayName }) => {
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+
+  const [showSignInForm, setShowSignInForm] = useState(false);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -20,26 +18,34 @@ const AuthForm = ({ name, displayName }) => {
     dispatch(authenticate({ username, password, method: formName }));
   };
 
+  const toggleSignInForm = () => {
+    setShowSignInForm(!showSignInForm);
+  };
+
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && <div> {error} </div>}
-      </form>
+    <div className='sign-in-form-container'>
+      {showSignInForm && (
+        <form onSubmit={handleSubmit} name={name} className='form'>
+          <div className='form-group'>
+            <label htmlFor="username">
+              <small>Username</small>
+            </label>
+            <input name="username" type="text" />
+          </div>
+          <div className='form-group'>
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
+          </div>
+          <div className='form-group'>
+            <button type="submit">{displayName}</button>
+          </div>
+          {error && <div className='error-message'>{error}</div>}
+        </form>
+      )}
+
+      <button onClick={toggleSignInForm}>Login</button>
     </div>
   );
 };

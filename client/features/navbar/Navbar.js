@@ -27,7 +27,8 @@ const Navbar = () => {
             <Link className="nav-link" to="/products">
               Tools
             </Link>
-            <button type="button" onClick={logoutAndRedirectHome}>
+            <Link className="nav-link" to='/packages'>Packages</Link>
+            <button type="log-out-button" onClick={logoutAndRedirectHome}>
               Logout
             </button>
           </div>

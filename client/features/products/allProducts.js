@@ -13,10 +13,6 @@ const AllProducts = () => {
     }
   }, [dispatch, allProducts]);
 
-  //   const priceFunction = () => {
-  //     return allProducts.price / 100
-  //   }
-
   if (allProducts === null) {
     return <div>Loading...</div>;
   }
@@ -25,7 +21,6 @@ const AllProducts = () => {
     return <div>No products found.</div>;
   }
 
-  console.log("All Products Array:", allProducts.length);
 
   return (
     <div className="all-product-container">
